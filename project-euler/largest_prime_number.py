@@ -10,7 +10,8 @@ def largest_prime(num):
       prime_factors.append(i)
       num /= i
     i += 1
-  return prime_factors[len(prime_factors)-1]
+  return prime_factors
+  # return prime_factors[len(prime_factors)-1]
 
 
-print(largest_prime(600851475143))
+print(largest_prime(3628800))
