@@ -35,20 +35,16 @@ class LinkedList():
       print(current.val, end="-")
       current = current.next 
 
-  def get_reverse(self, node):
-    if node:
-      self.get_reverse(node.next)
-      self.reversed.append(node.val)
-        
-    return self.reversed
+  def get_reversed_sum(self):
+    sum = 0
+    multiplier = 1
+    current = self.head
+    while(current != None):
+      sum += current.val * multiplier
+      multiplier *= 10
+      current = current.next
+    return sum
 
-def get_number(number_list):
-  val = 0
-  multiplier = 1
-  for i in range(len(number_list)-1, -1, -1):
-    val += number_list[i] * (multiplier)
-    multiplier *= 10
-  return val
 
 llist = LinkedList()
 llist2 = LinkedList()
@@ -61,9 +57,9 @@ llist2.append(5)
 llist2.append(9)
 llist2.append(2)
 
-first_reversed = llist.get_reverse(llist.head)
-second_reversed = llist2.get_reverse(llist2.head)
-reversed_total = get_number(first_reversed) + get_number(second_reversed)
+first_reversed = llist.get_reversed_sum()
+second_reversed = llist2.get_reversed_sum()
+reversed_total = first_reversed + second_reversed
 
 ans_llist = LinkedList()
 while reversed_total > 0:
@@ -71,6 +67,10 @@ while reversed_total > 0:
   reversed_total //= 10
 
 ans_llist.print()
+
+      
+
+
 
       
 
