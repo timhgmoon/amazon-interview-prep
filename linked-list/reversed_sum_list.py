@@ -16,7 +16,6 @@ class Node():
 class LinkedList():
   def __init__(self):
     self.head = None
-    self.reversed = []
 
   def append(self, new_val):
     new_node = Node(new_val)
